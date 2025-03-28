@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<script>
+      document.addEventListener("DOMContentLoaded", () => {
+            document.addEventListener("wheel", (event) => {
+                  event.preventDefault();
+                  const sections = document.querySelectorAll("section");
+                  const navLinks = document.querySelectorAll("nav a");
+
+                  let currentSection = Math.round(window.scrollY / window.innerHeight);
+                  const direction = event.deltaY > 0 ? 1 : -1;
+                  const nextSection = Math.max(0, Math.min(sections.length - 1, currentSection + direction));
+
+                  window.scrollTo({top: nextSection * window.innerHeight, behavior: "smooth"});
+
+                  navLinks.forEach((link) => link.classList.remove("activeMenu"));
+                  const activeLink = document.querySelector(`nav a[href="#${sections[nextSection].id}"]`);
+                  if (activeLink) activeLink.classList.add("activeMenu");
+            }, {passive: false});
+
+            const navLinks = document.querySelectorAll("nav a");
+            navLinks.forEach((link) => {
+                  link.addEventListener("click", (event) => {
+                        event.preventDefault();
+
+                        const targetSection = document.querySelector(link.getAttribute("href"));
+                        if (targetSection) {
+                              const targetPosition = targetSection.offsetTop;
+
+                              window.scrollTo({top: targetPosition, behavior: "smooth"});
+
+                              navLinks.forEach((l) => l.classList.remove("activeMenu"));
+                              link.classList.add("activeMenu");
+                        }
+                  });
+            });
+      });
+</script>
+<div>
+    <div id="color1"></div>
+    <div id="color2"></div>
+    <div id="color3"></div>
+    <div id="color4"></div>
+    <div id="color5"></div>
+</div>
+<header>
+    <div id="header-container">
+        <div id="avatarAndNameContainer">
+            <img id="profileIcon" src="assets/images/6522516.png" alt="profile picture">
+            <p>Roland Szentgyörgyhegyi</p>
+        </div>
+        <nav id="menu">
+            <a href="#introduction" class="activeMenu">Home</a>
+            <a href="#aboutMe">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <button id="cvButton" onclick="downloadFile()">Download CV</button>
+
+            <script>
+                  function downloadFile() {
+                        const link = document.createElement("a");
+                        link.href = 'assets/szentgyorgyhegyi_roland_cv.pdf';
+                        link.download = 'szentgyorgyhegyi_roland_cv.pdf';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                  }
+            </script>
+        </nav>
+    </div>
+</header>
+<section id="introduction">
+    <div id="introductionContent">
+        <h3>Hi, my name is</h3>
+        <h1>Roland Szentgyörgyhegyi</h1>
+        <div>
+            <h1 id="descreption"><span class="autoType"></span></h1>
+            <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+            <script>
+                  var typed = new Typed(".autoType", {
+                        strings: ["I'm a Frontend developer.", "I build things for the web."],
+                        typeSpeed: 60,
+                        backSpeed: 60,
+                        loop: true
+                  })
+            </script>
+        </div>
+    </div>
+</section>
+<section id="aboutMe">
+    <div id="aboutMeContent">
+        <div id="aboutMeContentAlignment">
+            <div id="aboutMeTextContainer">
+                <h2>About me</h2>
+                <div id="aboutMeDescription">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <img id="profileImage" src="assets/images/6522516.png" alt="profile picture">
+        </div>
+    </div>
+</section>
+<section id="experience">
+    <div id="experienceContent">
+        <h2>Experience</h2>
+        <div id="experienceTextContainer">
+            <div id="experienceAlignment">
+                <div id="experienceDescription">
+                    <div id="content1" class="text-content active">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                    <div id="content2" class="text-content">
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat
+                        nulla pariatur.
+                    </div>
+                    <div id="content3" class="text-content">
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                        id
+                        est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                        doloremque
+                        laudantium.
+                    </div>
+                    <div id="content4" class="text-content">
+                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                        consequuntur
+                        magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
+                        ipsum
+                        quia dolor sit amet.
+                    </div>
+                </div>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-button-container">
+                            <button id="btn1" class="circle-button active" onclick="showContent(1)"></button>
+                            <div class="connector connector-bottom"></div>
+                        </div>
+                        <span class="experience-label">Experience #1</span>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-button-container">
+                            <button id="btn2" class="circle-button" onclick="showContent(2)"></button>
+                            <div class="connector connector-top"></div>
+                            <div class="connector connector-bottom"></div>
+                        </div>
+                        <span class="experience-label">Experience #2</span>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-button-container">
+                            <button id="btn3" class="circle-button" onclick="showContent(3)"></button>
+                            <div class="connector connector-top"></div>
+                            <div class="connector connector-bottom"></div>
+                        </div>
+                        <span class="experience-label">Experience #3</span>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-button-container">
+                            <button id="btn4" class="circle-button" onclick="showContent(4)"></button>
+                            <div class="connector connector-top"></div>
+                        </div>
+                        <span class="experience-label">Experience #4</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+              function showContent(contentNumber) {
+                    // Hide all content
+                    const allContents = document.querySelectorAll('.text-content');
+                    allContents.forEach(content => {
+                          content.classList.remove('active');
+                    });
+
+                    // Show selected content
+                    const selectedContent = document.getElementById(`content${contentNumber}`);
+                    selectedContent.classList.add('active');
+
+                    // Update button styles
+                    const allButtons = document.querySelectorAll('.circle-button');
+                    allButtons.forEach(button => {
+                          button.classList.remove('active');
+                    });
+
+                    const selectedButton = document.getElementById(`btn${contentNumber}`);
+                    selectedButton.classList.add('active');
+              }
+        </script>
+    </div>
+</section>
+<section id="projects">
+    <div id="projectsContent">
+        <h2>My projects</h2>
+        <div id="projectsStepperContainer">
+
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <div id="contactContent">
+        <h2>Contact me</h2>
+        <div id="dataContainer">
+            <p>szentgyroland23@gmail.com</p>
+            <p>+36304750725</p>
+            <p>Szeged, Hungary</p>
+        </div>
+        <div id="iconContainer">
+            <i class="fab fa-github" style="font-size: 26px; color: #76ABAE; margin-inline: 10px"></i>
+            <i class="fab fa-linkedin" style="font-size: 26px; color: #76ABAE; margin-inline: 10px"></i>
+            <i class="fas fa-envelope" style="font-size: 26px; color: #76ABAE; margin-inline: 10px"></i>
+            <i class="fas fa-phone" style="font-size: 26px; color: #76ABAE; margin-inline: 10px"></i>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footerContent">
+            <p>©2025</p>
+            <p id="footerRight">Personal website</p>
+        </div>
+    </div>
+</section>
+<footer>
+</footer>
+</body>
+</html>

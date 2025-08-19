@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Roland Szentgyörgyhegyi</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -28,17 +28,6 @@
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
             <button id="cvButton" onclick="downloadFile()">Download CV</button>
-
-            <script>
-                  function downloadFile() {
-                        const link = document.createElement("a");
-                        link.href = 'assets/szentgyorgyhegyi_roland_cv.pdf';
-                        link.download = 'szentgyorgyhegyi_roland_cv.pdf';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                  }
-            </script>
         </nav>
     </div>
 </header>
@@ -73,7 +62,7 @@
                 </div>
             </div>
             <div id="profileImageContainer">
-                <img id="profileImage" src="assets/images/6522516.png" alt="profile picture">
+                <img id="profileImage" src="assets/images/avatarEdited.png" alt="profile picture">
             </div>
         </div>
     </div>
@@ -238,10 +227,18 @@
             <p>Szeged, Hungary</p>
         </div>
         <div id="iconContainer">
-            <i class="fab fa-github" style="font-size: 26px; color: #76ABAE; margin-inline: 10px"></i>
-            <i class="fab fa-linkedin" style="font-size: 26px; color: #76ABAE; margin-inline: 10px"></i>
-            <i class="fas fa-envelope" style="font-size: 26px; color: #76ABAE; margin-inline: 10px"></i>
-            <i class="fas fa-phone" style="font-size: 26px; color: #76ABAE; margin-inline: 10px"></i>
+            <a href="https://github.com/szentgyroland" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github iconLink"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/roland-szentgy%C3%B6rgyhegyi-295132289/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin iconLink"></i>
+            </a>
+            <a href="mailto:szentgyroland23.com">
+                <i class="fas fa-envelope iconLink"></i>
+            </a>
+            <a href="tel:+36304750725">
+                <i class="fas fa-phone iconLink"></i>
+            </a>
         </div>
     </div>
     <div id="footer">

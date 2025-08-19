@@ -38,6 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 });
 
+function downloadFile() {
+      const link = document.createElement("a");
+      link.href = 'assets/szentgyorgyhegyi_roland_cv.pdf';
+      link.download = 'szentgyorgyhegyi_roland_cv.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+}
+
+
 function showContent(contentNumber) {
 
       const allButtons = document.querySelectorAll('.circle-button');
@@ -45,13 +55,13 @@ function showContent(contentNumber) {
             button.classList.remove('active');
       });
 
-      const selectedButton = document.getElementById(`btn${contentNumber}`);
-      selectedButton.classList.add('active');
-
       const allContents = document.querySelectorAll('.text-content');
       allContents.forEach(content => {
             content.classList.remove('active');
       });
+
+      const selectedButton = document.getElementById(`btn${contentNumber}`);
+      selectedButton.classList.add('active');
 
       const selectedContent = document.getElementById(`content${contentNumber}`);
       selectedContent.classList.add('active');

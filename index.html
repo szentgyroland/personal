@@ -184,38 +184,59 @@
 
         <script>
               let slideIndex = 1;
-              showSlides(slideIndex);
+              let slideInterval;
 
-              // Next/previous controls
+              showSlides(slideIndex);
+              startTimer();
+
               function plusSlides(n) {
                     showSlides(slideIndex += n);
+                    resetTimer();
               }
 
-              // Thumbnail image controls
               function currentSlide(n) {
                     showSlides(slideIndex = n);
+                    resetTimer();
               }
 
               function showSlides(n) {
                     let i;
                     let slides = document.getElementsByClassName("mySlides");
                     let dots = document.getElementsByClassName("dot");
+
                     if (n > slides.length) {
-                          slideIndex = 1
+                          slideIndex = 1;
                     }
                     if (n < 1) {
-                          slideIndex = slides.length
+                          slideIndex = slides.length;
                     }
+
                     for (i = 0; i < slides.length; i++) {
                           slides[i].style.display = "none";
+                          slides[i].classList.remove("fade");
                     }
                     for (i = 0; i < dots.length; i++) {
                           dots[i].className = dots[i].className.replace(" active", "");
                     }
+
                     slides[slideIndex - 1].style.display = "block";
+                    slides[slideIndex - 1].classList.add("fade");
                     dots[slideIndex - 1].className += " active";
               }
+
+              function startTimer() {
+                    slideInterval = setInterval(() => {
+                          plusSlides(1);
+                    }, 5000);
+              }
+
+              function resetTimer() {
+                    clearInterval(slideInterval);
+                    startTimer();
+              }
+
         </script>
+
     </div>
 </section>
 <section id="contact">

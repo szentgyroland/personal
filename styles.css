@@ -474,6 +474,7 @@ body {
 
             .active, .dot:hover {
                 background-color: #76ABAE;
+                transform: scale(1.2);
             }
 
             /* Fading animation */

@@ -72,11 +72,15 @@ function showContent(contentNumber) {
             content.setAttribute('aria-hidden', 'true');
       });
 
-      const selectedButton = document.getElementById(`btn${contentNumber}`);
-      selectedButton.classList.add('active');
-      selectedButton.setAttribute('aria-pressed', 'true');
+      const selectedButton = document.getElementById(`btn-${contentNumber}`);
+      if (selectedButton) {
+            selectedButton.classList.add('active');
+            selectedButton.setAttribute('aria-pressed', 'true');
+      }
 
-      const selectedContent = document.getElementById(`content${contentNumber}`);
-      selectedContent.classList.add('active');
-      selectedContent.setAttribute('aria-hidden', 'false');
+      const selectedContent = document.getElementById(`content-${contentNumber}`);
+      if (selectedContent) {
+            selectedContent.classList.add('active');
+            selectedContent.setAttribute('aria-hidden', 'false');
+      }
 }

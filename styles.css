@@ -24,7 +24,7 @@ body {
 /* For desktops */
 @media (min-width: 940px) {
 
-    #color1 {
+    #color-1 {
         height: 1000px;
         width: 1000px;
         background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.2), #222831);
@@ -33,7 +33,7 @@ body {
         top: -300px;
         z-index: -1000;
     }
-    #color2 {
+    #color-2 {
         height: 1000px;
         width: 1000px;
         background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.25), #222831);
@@ -42,7 +42,7 @@ body {
         top: 450px;
         z-index: -1000;
     }
-    #color3 {
+    #color-3 {
         height: 1000px;
         width: 1000px;
         background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.2), #222831);
@@ -51,7 +51,7 @@ body {
         top: 1200px;
         z-index: -1000;
     }
-    #color4 {
+    #color-4 {
         height: 800px;
         width: 1000px;
         background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.25), #222831);
@@ -60,7 +60,7 @@ body {
         top: 2400px;
         z-index: -1000;
     }
-    #color5 {
+    #color-5 {
         height: 1000px;
         width: 1000px;
         background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.25), #222831);
@@ -191,7 +191,7 @@ body {
                 margin-left: 10px;
             }
 
-            #descreption {
+            #description {
                 opacity: 75%;
             }
         }
@@ -265,12 +265,12 @@ body {
                     display: flex;
                 }
 
-                #experienceDescription .text-content {
+                #experience-description .text-content {
                     text-align: justify;
                     pointer-events: none;
                 }
 
-                #experienceDescription .text-content.active {
+                #experience-description .text-content.active {
                     pointer-events: auto;
                 }
             }
@@ -384,16 +384,16 @@ body {
         justify-content: center;
         transform: translateY(-64px);
 
-        #projectsContent {
+        #projects-content {
             width: 824px;
             height: 464px;
 
-            .mySlides img {
+            .my-slides img {
                 transition: transform 0.3s ease, opacity 0.3s ease;
                 cursor: pointer;
             }
 
-            .mySlides img:hover {
+            .my-slides img:hover {
                 transform: scale(1.01);
                 opacity: 0.8;
             }
@@ -412,7 +412,7 @@ body {
             }
 
             /* Hide the images by default */
-            .mySlides {
+            .my-slides {
                 display: none;
             }
 
@@ -455,7 +455,7 @@ body {
                 text-align: center;
             }
 
-            .numberText {
+            .number-text {
                 color: #f2f2f2;
                 font-size: 12px;
                 padding: 8px 12px;
@@ -501,10 +501,10 @@ body {
         justify-content: center;
         transform: translateY(-64px);
 
-        #contactContent {
+        #contact-content {
             width: 191px;
 
-            #dataContainer{
+            #data-container{
                 margin-top: 0;
                 display: flex;
                 flex-direction: column;
@@ -517,14 +517,14 @@ body {
                 }
             }
 
-            #iconContainer {
+            #icon-container {
                 margin-top: 15px;
                 width: 100%;
                 align-content: center;
                 justify-content: center;
                 display: flex;
 
-                .iconLink {
+                .icon-link {
                     font-size: 26px;
                     color: #76ABAE;
                     margin-inline: 10px;
@@ -532,7 +532,7 @@ body {
                     transition: transform 0.2s ease;
                 }
 
-                .iconLink:hover {
+                .icon-link:hover {
                     transform: scale(1.3);
                 }
             }
@@ -547,7 +547,7 @@ body {
         bottom: 10px;
         width: 100%;
 
-        #footerContent {
+        #footer-content {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -557,7 +557,7 @@ body {
                 font-size: 12px;
             }
 
-            #footerRight {
+            #footer-right {
                 text-align: right;
             }
         }

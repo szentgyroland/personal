@@ -27,10 +27,11 @@ body {
     #color1 {
         height: 1000px;
         width: 1000px;
-        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.25), #222831);
+        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.2), #222831);
         position: absolute;
         left: -600px;
         top: -300px;
+        z-index: -1000;
     }
     #color2 {
         height: 1000px;
@@ -39,22 +40,25 @@ body {
         position: absolute;
         right: -500px;
         top: 450px;
+        z-index: -1000;
     }
     #color3 {
         height: 1000px;
         width: 1000px;
-        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.25), #222831);
+        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.2), #222831);
         position: absolute;
         left: -500px;
         top: 1200px;
+        z-index: -1000;
     }
     #color4 {
-        height: 1000px;
+        height: 800px;
         width: 1000px;
         background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.25), #222831);
         position: absolute;
         right: -300px;
         top: 2400px;
+        z-index: -1000;
     }
     #color5 {
         height: 1000px;

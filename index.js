@@ -15,9 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             window.scrollTo({top: nextSection * window.innerHeight, behavior: "smooth"});
 
-            navLinks.forEach((link) => link.classList.remove("activeMenu"));
+            navLinks.forEach((link) => {
+                  link.classList.remove("activeMenu");
+                  link.removeAttribute("aria-current");
+            });
             const activeLink = document.querySelector(`nav a[href="#${sections[nextSection].id}"]`);
-            if (activeLink) activeLink.classList.add("activeMenu");
+            if (activeLink) {
+                  activeLink.classList.add("activeMenu");
+                  activeLink.setAttribute("aria-current", "page");
+            }
       }, {passive: false});
 
       const navLinks = document.querySelectorAll("nav a");
@@ -31,8 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         window.scrollTo({top: targetPosition, behavior: "smooth"});
 
-                        navLinks.forEach((l) => l.classList.remove("activeMenu"));
+                        navLinks.forEach((l) => {
+                              l.classList.remove("activeMenu");
+                              l.removeAttribute("aria-current");
+                        });
                         link.classList.add("activeMenu");
+                        link.setAttribute("aria-current", "page");
                   }
             });
       });
@@ -53,16 +63,20 @@ function showContent(contentNumber) {
       const allButtons = document.querySelectorAll('.circle-button');
       allButtons.forEach(button => {
             button.classList.remove('active');
+            button.setAttribute('aria-pressed', 'false');
       });
 
       const allContents = document.querySelectorAll('.text-content');
       allContents.forEach(content => {
             content.classList.remove('active');
+            content.setAttribute('aria-hidden', 'true');
       });
 
       const selectedButton = document.getElementById(`btn${contentNumber}`);
       selectedButton.classList.add('active');
+      selectedButton.setAttribute('aria-pressed', 'true');
 
       const selectedContent = document.getElementById(`content${contentNumber}`);
       selectedContent.classList.add('active');
+      selectedContent.setAttribute('aria-hidden', 'false');
 }

@@ -111,11 +111,11 @@ body {
             justify-content: space-evenly;
             align-items: center;
 
-            #avatarAndNameContainer {
+            #avatar-and-name-container {
                 display: flex;
                 align-items: center;
 
-                #profileIcon {
+                #profile-icon {
                     width: 50px;
                     height: 50px;
                 }
@@ -133,13 +133,13 @@ body {
                    transition: 0.3s;
                }
 
-               a.activeMenu {
+               a.active-menu {
                    text-decoration: none; /* Remove default underline */
                    border-bottom: 2px solid #76ABAE; /* Add underline with your color */
                    padding-bottom: 2px; /* Optional: to give space between text and underline */
                }
 
-                #cvButton {
+                #cv-button {
                     background: none;
                     border: 2px solid #76ABAE;
                     color: #76ABAE;
@@ -153,7 +153,7 @@ body {
                     height: 40px;
                 }
 
-                #cvButton::after {
+                #cv-button::after {
                     content: "";
                     position: absolute;
                     width: 100%;
@@ -166,11 +166,11 @@ body {
                     transition: transform 0.3s ease-in-out;
                 }
 
-                #cvButton:hover::after {
+                #cv-button:hover::after {
                     transform: scaleX(1);
                 }
 
-                #cvButton:hover {
+                #cv-button:hover {
                     color: white;
                 }
             }
@@ -184,7 +184,7 @@ body {
         justify-content: center;
         transform: translateY(-64px);
 
-        #introductionContent {
+        #introduction-content {
             width: 800px;
 
             h3 {
@@ -197,28 +197,28 @@ body {
         }
     }
 
-    #aboutMe {
+    #about-me {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         transform: translateY(-64px);
 
-        #aboutMeContent {
+        #about-me-content {
             width: 600px;
 
-            #aboutMeContentAlignment {
+            #about-me-content-alignment {
                 display: flex;
 
-                #profileImageContainer {
+                #profile-image-container {
                     display: flex;
                     align-items: center;
                 }
 
-                #aboutMeTextContainer {
+                #about-me-text-container {
                     margin-top: 20px;
 
-                    #aboutMeDescription {
+                    #about-me-description {
                         text-align: justify;
                         width: 80%;
 
@@ -228,7 +228,7 @@ body {
                     }
                 }
 
-                #profileImage {
+                #profile-image {
                     width: 200px;
                     height: 200px;
                     margin-top: 20px;
@@ -245,17 +245,17 @@ body {
         justify-content: center;
         margin-top: 7px;
 
-        #experienceContent {
+        #experience-content {
             width: 600px;
 
-            #experienceAlignment {
+            #experience-alignment {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
                 flex-direction: row;
                 width: 100%;
 
-                #experienceDescription {
+                #experience-description {
                     position: relative;
                     height: 350px;
                     width: 350px;

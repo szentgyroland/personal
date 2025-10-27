@@ -563,3 +563,38 @@ body {
         }
     }
 }
+
+
+/* Utility classes extracted from inline styles */
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    background: #222831;
+    color: #EEEEEE;
+    padding: 8px 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    z-index: 2000;
+}
+
+.slide-image {
+    height: 464px;
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.dots-container {
+    text-align: center;
+}

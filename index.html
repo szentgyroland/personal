@@ -9,7 +9,7 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <a href="#main-content" class="skip-link" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div aria-hidden="true">
         <div id="color-1" aria-hidden="true"></div>
         <div id="color-2" aria-hidden="true"></div>
@@ -152,19 +152,19 @@
         <div class="slideshow-container" role="region" aria-label="Projects slideshow">
 
             <div class="my-slides fade">
-                <img src="assets/images/test4.webp" style="height:464px; width:100%; border-radius: 10px"
+                <img src="assets/images/test4.webp" class="slide-image"
                      alt="Project #1">
                 <div class="text">Project #1</div>
             </div>
 
             <div class="my-slides fade">
-                <img src="assets/images/test2.jpeg" style="height:464px; width:100%; border-radius: 10px"
+                <img src="assets/images/test2.jpeg" class="slide-image"
                      alt="Project #2">
                 <div class="text">Project #2</div>
             </div>
 
             <div class="my-slides fade">
-                <img src="assets/images/test3.jpg" style="height:464px; width:100%; border-radius: 10px"
+                <img src="assets/images/test3.jpg" class="slide-image"
                      alt="Project #3">
                 <div class="text">Project #3</div>
             </div>
@@ -174,7 +174,7 @@
         </div>
         <br>
 
-        <div style="text-align:center">
+        <div class="dots-container">
             <span class="dot" role="button" tabindex="0" aria-label="Go to slide 1" onclick="currentSlide(1)"></span>
             <span class="dot" role="button" tabindex="0" aria-label="Go to slide 2" onclick="currentSlide(2)"></span>
             <span class="dot" role="button" tabindex="0" aria-label="Go to slide 3" onclick="currentSlide(3)"></span>

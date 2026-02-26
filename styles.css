@@ -1,3 +1,7 @@
+html {
+    overflow-x: hidden;
+}
+
 body {
     background-color: #222831;
     color: #EEEEEE;
@@ -607,7 +611,7 @@ body {
     #color-2 {
         height: 500px; width: 500px;
         background-image: radial-gradient(closest-side, rgba(118,171,174,0.25), #222831);
-        position: absolute; right: -250px; top: 800px; z-index: -1000;
+        position: absolute; left: -200px; top: 800px; z-index: -1000;
     }
     #color-3 {
         height: 500px; width: 500px;
@@ -617,7 +621,7 @@ body {
     #color-4 {
         height: 400px; width: 500px;
         background-image: radial-gradient(closest-side, rgba(118,171,174,0.25), #222831);
-        position: absolute; right: -150px; top: 2800px; z-index: -1000;
+        position: absolute; left: -200px; top: 2800px; z-index: -1000;
     }
 
     /* ── Header ── */
@@ -707,9 +711,7 @@ body {
     }
 
     /* ── Hero / Introduction ── */
-    #introduction { align-items: flex-start; }
-
-    #introduction-content { width: 100%; }
+    #introduction-content { width: 100%; text-align: center; }
 
     #introduction-content h3 { margin-left: 0; }
 

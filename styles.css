@@ -28,6 +28,7 @@ body {
         left: -600px;
         top: -300px;
         z-index: -1000;
+        animation: bubble-drift-1 18s ease-in-out infinite;
     }
     #color-2 {
         height: 1000px;
@@ -37,6 +38,7 @@ body {
         right: -500px;
         top: 450px;
         z-index: -1000;
+        animation: bubble-drift-2 22s ease-in-out infinite;
     }
     #color-3 {
         height: 1000px;
@@ -46,6 +48,7 @@ body {
         left: -500px;
         top: 1200px;
         z-index: -1000;
+        animation: bubble-drift-3 26s ease-in-out infinite;
     }
     #color-4 {
         height: 800px;
@@ -55,6 +58,41 @@ body {
         right: -300px;
         top: 2400px;
         z-index: -1000;
+        animation: bubble-drift-4 20s ease-in-out infinite;
+    }
+
+    @keyframes bubble-drift-1 {
+        0%   { transform: translate(0, 0) scale(1); }
+        33%  { transform: translate(60px, 40px) scale(1.05); }
+        66%  { transform: translate(-30px, 70px) scale(0.97); }
+        100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @keyframes bubble-drift-2 {
+        0%   { transform: translate(0, 0) scale(1); }
+        33%  { transform: translate(-50px, -60px) scale(1.04); }
+        66%  { transform: translate(40px, -30px) scale(0.96); }
+        100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @keyframes bubble-drift-3 {
+        0%   { transform: translate(0, 0) scale(1); }
+        33%  { transform: translate(70px, -40px) scale(1.06); }
+        66%  { transform: translate(20px, 60px) scale(0.98); }
+        100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @keyframes bubble-drift-4 {
+        0%   { transform: translate(0, 0) scale(1); }
+        33%  { transform: translate(-60px, 50px) scale(1.05); }
+        66%  { transform: translate(-20px, -50px) scale(0.96); }
+        100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        #color-1, #color-2, #color-3, #color-4 {
+            animation: none;
+        }
     }
 
     section {

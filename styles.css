@@ -9,10 +9,6 @@ body {
 /* For tablets and phones */
 @media (max-width: 940px) {
     h1 {
-        font-size: 20px;
-    }
-
-    h1 {
         font-size: 10px;
     }
 
@@ -59,14 +55,6 @@ body {
         right: -300px;
         top: 2400px;
         z-index: -1000;
-    }
-    #color-5 {
-        height: 1000px;
-        width: 1000px;
-        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.25), #222831);
-        position: absolute;
-        left: -300px;
-        top: 4300px
     }
 
     section {
@@ -133,10 +121,10 @@ body {
                    transition: 0.3s;
                }
 
-               a.active-menu {
-                   text-decoration: none; /* Remove default underline */
-                   border-bottom: 2px solid #76ABAE; /* Add underline with your color */
-                   padding-bottom: 2px; /* Optional: to give space between text and underline */
+               a.activeMenu {
+                   text-decoration: none;
+                   border-bottom: 2px solid #76ABAE;
+                   padding-bottom: 2px;
                }
 
                 #cv-button {
@@ -340,9 +328,6 @@ body {
 
             .circle-button.active {
                 transform: scale(1.05);
-            }
-
-            .circle-button.active {
                 border: 3px solid #76ABAE;
             }
 
@@ -597,4 +582,5 @@ body {
 
 .dots-container {
     text-align: center;
+    margin-top: 10px;
 }

@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="index.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -27,7 +28,7 @@
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
-            <button id="cv-button" onclick="downloadFile()" aria-label="Download CV as PDF">Download CV</button>
+            <button id="cv-button" aria-label="Download CV as PDF">Download CV</button>
         </nav>
     </div>
 </header>
@@ -38,16 +39,6 @@
         <h1>Roland Szentgyörgyhegyi</h1>
         <div>
             <h1 id="description"><span class="autoType" aria-live="polite" aria-atomic="true"></span></h1>
-            <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-            <script>
-                  let typed = new Typed(".autoType", {
-                        strings: ["I'm a Frontend developer.", "I build things for the web."],
-                        typeSpeed: 60,
-                        backSpeed: 60,
-                        loop: true
-                  })
-            </script>
         </div>
     </div>
 </section>
@@ -110,7 +101,7 @@
                 <div class="timeline-container" role="tablist" aria-label="Experience timeline">
                     <div class="timeline-item">
                         <div class="timeline-button-container">
-                            <button id="btn-1" class="circle-button active" onclick="showContent(1)" aria-label="Show Experience 1" aria-controls="content-1" aria-pressed="true" role="tab"></button>
+                            <button id="btn-1" class="circle-button active" aria-label="Show Experience 1" aria-controls="content-1" aria-pressed="true" role="tab"></button>
                             <div class="connector connector-bottom" aria-hidden="true"></div>
                         </div>
                         <span class="experience-label">Experience #1</span>
@@ -118,7 +109,7 @@
 
                     <div class="timeline-item">
                         <div class="timeline-button-container">
-                            <button id="btn-2" class="circle-button" onclick="showContent(2)" aria-label="Show Experience 2" aria-controls="content-2" aria-pressed="false" role="tab"></button>
+                            <button id="btn-2" class="circle-button" aria-label="Show Experience 2" aria-controls="content-2" aria-pressed="false" role="tab"></button>
                             <div class="connector connector-top" aria-hidden="true"></div>
                             <div class="connector connector-bottom" aria-hidden="true"></div>
                         </div>
@@ -127,7 +118,7 @@
 
                     <div class="timeline-item">
                         <div class="timeline-button-container">
-                            <button id="btn-3" class="circle-button" onclick="showContent(3)" aria-label="Show Experience 3" aria-controls="content-3" aria-pressed="false" role="tab"></button>
+                            <button id="btn-3" class="circle-button" aria-label="Show Experience 3" aria-controls="content-3" aria-pressed="false" role="tab"></button>
                             <div class="connector connector-top" aria-hidden="true"></div>
                             <div class="connector connector-bottom" aria-hidden="true"></div>
                         </div>
@@ -136,7 +127,7 @@
 
                     <div class="timeline-item">
                         <div class="timeline-button-container">
-                            <button id="btn-4" class="circle-button" onclick="showContent(4)" aria-label="Show Experience 4" aria-controls="content-4" aria-pressed="false" role="tab"></button>
+                            <button id="btn-4" class="circle-button" aria-label="Show Experience 4" aria-controls="content-4" aria-pressed="false" role="tab"></button>
                             <div class="connector connector-top" aria-hidden="true"></div>
                         </div>
                         <span class="experience-label">Experience #4</span>
@@ -169,90 +160,15 @@
                 <div class="text">Project #3</div>
             </div>
 
-            <a class="prev" onclick="plusSlides(-1)" aria-label="Previous slide">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)" aria-label="Next slide">&#10095;</a>
+            <a class="prev" aria-label="Previous slide">&#10094;</a>
+            <a class="next" aria-label="Next slide">&#10095;</a>
         </div>
-        <br>
 
         <div class="dots-container">
-            <span class="dot" role="button" tabindex="0" aria-label="Go to slide 1" onclick="currentSlide(1)"></span>
-            <span class="dot" role="button" tabindex="0" aria-label="Go to slide 2" onclick="currentSlide(2)"></span>
-            <span class="dot" role="button" tabindex="0" aria-label="Go to slide 3" onclick="currentSlide(3)"></span>
+            <span class="dot" role="button" tabindex="0" aria-label="Go to slide 1"></span>
+            <span class="dot" role="button" tabindex="0" aria-label="Go to slide 2"></span>
+            <span class="dot" role="button" tabindex="0" aria-label="Go to slide 3"></span>
         </div>
-
-        <script>
-              let slideIndex = 1;
-              let slideInterval;
-
-              showSlides(slideIndex);
-              startTimer();
-
-              function plusSlides(n) {
-                    showSlides(slideIndex += n);
-                    resetTimer();
-              }
-
-              function currentSlide(n) {
-                    showSlides(slideIndex = n);
-                    resetTimer();
-              }
-
-              function showSlides(n) {
-                    let i;
-                    const slides = document.getElementsByClassName("my-slides");
-                    const dots = document.getElementsByClassName("dot");
-
-                    if (n > slides.length) {
-                          slideIndex = 1;
-                    }
-                    if (n < 1) {
-                          slideIndex = slides.length;
-                    }
-
-                    for (i = 0; i < slides.length; i++) {
-                          slides[i].style.display = "none";
-                          slides[i].setAttribute('aria-hidden', 'true');
-                          slides[i].classList.remove("fade");
-                    }
-                    for (i = 0; i < dots.length; i++) {
-                          dots[i].className = dots[i].className.replace(" active", "");
-                          dots[i].removeAttribute('aria-current');
-                    }
-
-                    slides[slideIndex - 1].style.display = "block";
-                    slides[slideIndex - 1].setAttribute('aria-hidden', 'false');
-                    slides[slideIndex - 1].classList.add("fade");
-                    dots[slideIndex - 1].className += " active";
-                    dots[slideIndex - 1].setAttribute('aria-current', 'true');
-              }
-
-              function startTimer() {
-                    slideInterval = setInterval(() => {
-                          plusSlides(1);
-                    }, 5000);
-              }
-
-              function resetTimer() {
-                    clearInterval(slideInterval);
-                    startTimer();
-              }
-
-              // Keyboard support for dots
-              document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                          const active = document.activeElement;
-                          if (active && active.classList.contains('dot')) {
-                                e.preventDefault();
-                                const dots = Array.from(document.getElementsByClassName('dot'));
-                                const index = dots.indexOf(active);
-                                if (index !== -1) {
-                                      currentSlide(index + 1);
-                                }
-                          }
-                    }
-              });
-
-        </script>
 
     </div>
 </section>
@@ -287,7 +203,5 @@
     </div>
 </section>
 </main>
-<footer>
-</footer>
 </body>
 </html>

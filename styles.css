@@ -642,7 +642,7 @@ body {
     color: #76ABAE;
     cursor: pointer;
     font-size: 16px;
-    padding: 4px 6px;
+    padding: 2px 2px;
     transition: transform 0.2s ease, color 0.2s ease;
     line-height: 1;
 }

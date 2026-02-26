@@ -27,38 +27,76 @@ body {
     #color-1 {
         height: 1000px;
         width: 1000px;
-        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.2), #222831);
+        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.4), #222831);
         position: absolute;
         left: -600px;
         top: -300px;
         z-index: -1000;
+        animation: bubble-drift-1 18s ease-in-out infinite;
     }
     #color-2 {
         height: 1000px;
         width: 1000px;
-        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.25), #222831);
+        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.45), #222831);
         position: absolute;
         right: -500px;
         top: 450px;
         z-index: -1000;
+        animation: bubble-drift-2 22s ease-in-out infinite;
     }
     #color-3 {
         height: 1000px;
         width: 1000px;
-        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.2), #222831);
+        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.4), #222831);
         position: absolute;
         left: -500px;
         top: 1200px;
         z-index: -1000;
+        animation: bubble-drift-3 26s ease-in-out infinite;
     }
     #color-4 {
         height: 800px;
         width: 1000px;
-        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.25), #222831);
+        background-image: radial-gradient(closest-side, rgba(118, 171, 174, 0.45), #222831);
         position: absolute;
         right: -300px;
         top: 2400px;
         z-index: -1000;
+        animation: bubble-drift-4 20s ease-in-out infinite;
+    }
+
+    @keyframes bubble-drift-1 {
+        0%   { transform: translate(0, 0) scale(1); }
+        33%  { transform: translate(120px, 80px) scale(1.1); }
+        66%  { transform: translate(-60px, 130px) scale(0.93); }
+        100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @keyframes bubble-drift-2 {
+        0%   { transform: translate(0, 0) scale(1); }
+        33%  { transform: translate(-100px, -120px) scale(1.08); }
+        66%  { transform: translate(80px, -60px) scale(0.92); }
+        100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @keyframes bubble-drift-3 {
+        0%   { transform: translate(0, 0) scale(1); }
+        33%  { transform: translate(140px, -80px) scale(1.12); }
+        66%  { transform: translate(40px, 120px) scale(0.94); }
+        100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @keyframes bubble-drift-4 {
+        0%   { transform: translate(0, 0) scale(1); }
+        33%  { transform: translate(-120px, 100px) scale(1.1); }
+        66%  { transform: translate(-40px, -100px) scale(0.92); }
+        100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        #color-1, #color-2, #color-3, #color-4 {
+            animation: none;
+        }
     }
 
     section {

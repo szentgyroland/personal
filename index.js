@@ -197,6 +197,27 @@ function initSlideshow() {
     startTimer();
 }
 
+/**
+ * Toggles the mobile navigation menu open/closed via the hamburger button.
+ */
+function initHamburger() {
+    const hamburger = document.getElementById("hamburger-btn");
+    const menu = document.getElementById("menu");
+    if (!hamburger || !menu) return;
+
+    hamburger.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("open");
+        hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("open");
+            hamburger.setAttribute("aria-expanded", "false");
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     initTyped();
     initScrollNavigation();
@@ -204,4 +225,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initCvDownload();
     initExperienceTimeline();
     initSlideshow();
+    initHamburger();
 });

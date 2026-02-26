@@ -218,6 +218,25 @@ function initHamburger() {
     });
 }
 
+/**
+ * Attaches click handlers to copy buttons, copying their data-copy value to the clipboard.
+ * Briefly shows a checkmark icon as visual feedback.
+ */
+function initCopyButtons() {
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const text = btn.getAttribute("data-copy");
+            navigator.clipboard.writeText(text).then(() => {
+                const icon = btn.querySelector("i");
+                icon.classList.replace("fa-copy", "fa-check");
+                setTimeout(() => icon.classList.replace("fa-check", "fa-copy"), 1500);
+            }).catch(() => {
+                btn.setAttribute("aria-label", btn.getAttribute("aria-label") + " (copy failed)");
+            });
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     initTyped();
     initScrollNavigation();
@@ -225,5 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initCvDownload();
     initExperienceTimeline();
     initSlideshow();
+    initCopyButtons();
     initHamburger();
 });

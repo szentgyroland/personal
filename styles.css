@@ -631,6 +631,27 @@ body {
     margin-top: 10px;
 }
 
+.contact-row {
+    display: flex;
+    align-items: center;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    color: #76ABAE;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px 2px;
+    transition: transform 0.2s ease, color 0.2s ease;
+    line-height: 1;
+}
+
+.copy-btn:hover {
+    transform: scale(1.2);
+    color: #EEEEEE;
+}
+
 /* ── Mobile styles ─────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
 

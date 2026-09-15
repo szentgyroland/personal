@@ -267,6 +267,33 @@ a {
     display: none;
 }
 
+/* Download CV: a teal fill sweeps in from the left on hover or focus. */
+.site-nav .button {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.site-nav .button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgb(118 171 174 / 0.45);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.site-nav .button:is(:hover, :focus-visible) {
+    background: transparent;
+    color: #ffffff;
+}
+
+.site-nav .button:is(:hover, :focus-visible)::after {
+    transform: scaleX(1);
+}
+
 .site-nav ul {
     margin: 0;
     padding: 0;
@@ -732,6 +759,10 @@ a {
     .blob,
     .typewriter::after {
         animation: none;
+    }
+
+    .site-nav .button::after {
+        transition: none;
     }
 
     .project-card:hover {

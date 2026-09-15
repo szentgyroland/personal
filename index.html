@@ -3,217 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roland Szentgyörgyhegyi</title>
+    <title>Roland Szentgyörgyhegyi · Frontend developer</title>
+    <meta name="description" content="Roland Szentgyörgyhegyi is a frontend developer based in Szeged, Hungary. Projects, experience and contact details.">
+    <meta name="theme-color" content="#222831">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Roland Szentgyörgyhegyi · Frontend developer">
+    <meta property="og:description" content="Projects, experience and contact details.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300..700&display=swap">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" defer></script>
-    <script src="index.js" defer></script>
+    <script src="index.js" type="module"></script>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div aria-hidden="true">
-        <div id="color-1" aria-hidden="true"></div>
-        <div id="color-2" aria-hidden="true"></div>
-        <div id="color-3" aria-hidden="true"></div>
-        <div id="color-4" aria-hidden="true"></div>
-    </div>
-<header>
-    <div id="header-container">
-        <div id="avatar-and-name-container">
-            <p>Roland Szentgyörgyhegyi</p>
-        </div>
-        <button id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
-        <nav id="menu" role="navigation" aria-label="Primary">
-            <a href="#introduction" class="activeMenu" aria-current="page">Home</a>
-            <a href="#about-me">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            <button id="cv-button" aria-label="Download CV as PDF">Download CV</button>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="backdrop" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+</div>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="#home" class="brand">Roland Szentgyörgyhegyi</a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+            <span class="visually-hidden">Menu</span>
+            <svg class="icon icon-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+            <ul role="list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a class="button button-outline" href="assets/szentgyorgyhegyi_roland_cv.pdf" download="szentgyorgyhegyi-roland-cv.pdf">Download CV</a>
         </nav>
     </div>
 </header>
-<main id="main-content" role="main">
-<section id="introduction" aria-labelledby="intro-heading">
-    <div id="introduction-content">
-        <h3 id="intro-heading">Hi, my name is</h3>
-        <h1>Roland Szentgyörgyhegyi</h1>
-        <div>
-            <h1 id="description"><span class="autoType" aria-live="polite" aria-atomic="true"></span></h1>
-        </div>
-    </div>
-</section>
-<section id="about-me" aria-labelledby="about-heading">
-    <div id="about-me-content">
-        <div id="about-me-content-alignment">
-            <div id="about-me-text-container">
-                <h2 id="about-heading">About me</h2>
-                <div id="about-me-description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>
-            <div id="profile-image-container">
-                <img id="profile-image" src="assets/images/avatarEdited.png" alt="profile picture">
+
+<main id="main" tabindex="-1">
+    <section id="home" class="hero">
+        <div class="container">
+            <p class="eyebrow">Hi, my name is</p>
+            <h1>Roland Szentgyörgyhegyi</h1>
+            <p class="hero-tagline">
+                <span class="visually-hidden">I'm a frontend developer. I build things for the web.</span>
+                <!-- Phrases are separated by "|". The first one is shown before the script starts. -->
+                <span class="typewriter" aria-hidden="true" data-phrases="I'm a frontend developer.|I build things for the web.">I'm a frontend developer.</span>
+            </p>
+            <p class="hero-lead">
+                I'm based in Szeged, Hungary. This page collects the things I've built and the places I've worked.
+            </p>
+            <div class="hero-actions">
+                <a class="button button-solid" href="#projects">See my projects</a>
+                <a class="button button-outline" href="#contact">Get in touch</a>
             </div>
         </div>
-    </div>
-</section>
-<section id="experience" aria-labelledby="exp-heading">
-    <div id="experience-content">
-        <h2 id="exp-heading">Experience</h2>
-        <div id="experience-text-container">
-            <div id="experience-alignment">
-                <div id="experience-description">
-                    <div id="content-1" class="text-content active" role="tabpanel" aria-labelledby="btn-1" aria-hidden="false">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                    <div id="content-2" class="text-content" role="tabpanel" aria-labelledby="btn-2" aria-hidden="true">
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat
-                        nulla pariatur.
-                    </div>
-                    <div id="content-3" class="text-content" role="tabpanel" aria-labelledby="btn-3" aria-hidden="true">
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id
-                        est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                        doloremque
-                        laudantium.
-                    </div>
-                    <div id="content-4" class="text-content" role="tabpanel" aria-labelledby="btn-4" aria-hidden="true">
-                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                        consequuntur
-                        magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                        ipsum
-                        quia dolor sit amet.
-                    </div>
-                </div>
-                <div class="timeline-container" role="tablist" aria-label="Experience timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-button-container">
-                            <button id="btn-1" class="circle-button active" aria-label="Show Experience 1" aria-controls="content-1" aria-pressed="true" role="tab"></button>
-                            <div class="connector connector-bottom" aria-hidden="true"></div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container about">
+            <div class="about-text">
+                <h2 class="section-title">About me</h2>
+                <!-- TODO: replace with your own story. -->
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                </p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                </p>
+                <h3 class="subheading">Tools I work with</h3>
+                <ul class="tag-list" role="list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <img class="about-photo" src="assets/images/avatar.webp" alt="Illustration of Roland taking a mirror selfie" width="600" height="600" loading="lazy">
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-lead">A selection of things I've built.</p>
+
+            <!-- To add a project, copy one <li> block. Images are 800×500 WebP. -->
+            <ul class="project-grid" role="list">
+                <li>
+                    <article class="project-card">
+                        <img src="assets/images/project-1.webp" alt="" width="800" height="500" loading="lazy">
+                        <div class="project-body">
+                            <h3 class="project-title">Project one</h3>
+                            <p>One or two sentences on what it does, who it's for, and what you learned building it.</p>
+                            <ul class="tag-list" role="list">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                            <p class="project-links">
+                                <a href="https://github.com/szentgyroland">Source code<span class="visually-hidden">: Project one</span></a>
+                            </p>
                         </div>
-                        <span class="experience-label">Experience #1</span>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-button-container">
-                            <button id="btn-2" class="circle-button" aria-label="Show Experience 2" aria-controls="content-2" aria-pressed="false" role="tab"></button>
-                            <div class="connector connector-top" aria-hidden="true"></div>
-                            <div class="connector connector-bottom" aria-hidden="true"></div>
+                    </article>
+                </li>
+                <li>
+                    <article class="project-card">
+                        <img src="assets/images/project-2.webp" alt="" width="800" height="500" loading="lazy">
+                        <div class="project-body">
+                            <h3 class="project-title">Project two</h3>
+                            <p>One or two sentences on what it does, who it's for, and what you learned building it.</p>
+                            <ul class="tag-list" role="list">
+                                <li>JavaScript</li>
+                            </ul>
+                            <p class="project-links">
+                                <a href="https://github.com/szentgyroland">Source code<span class="visually-hidden">: Project two</span></a>
+                            </p>
                         </div>
-                        <span class="experience-label">Experience #2</span>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-button-container">
-                            <button id="btn-3" class="circle-button" aria-label="Show Experience 3" aria-controls="content-3" aria-pressed="false" role="tab"></button>
-                            <div class="connector connector-top" aria-hidden="true"></div>
-                            <div class="connector connector-bottom" aria-hidden="true"></div>
+                    </article>
+                </li>
+                <li>
+                    <article class="project-card">
+                        <img src="assets/images/project-3.webp" alt="" width="800" height="500" loading="lazy">
+                        <div class="project-body">
+                            <h3 class="project-title">Project three</h3>
+                            <p>One or two sentences on what it does, who it's for, and what you learned building it.</p>
+                            <ul class="tag-list" role="list">
+                                <li>HTML</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <p class="project-links">
+                                <a href="https://github.com/szentgyroland">Source code<span class="visually-hidden">: Project three</span></a>
+                            </p>
                         </div>
-                        <span class="experience-label">Experience #3</span>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-button-container">
-                            <button id="btn-4" class="circle-button" aria-label="Show Experience 4" aria-controls="content-4" aria-pressed="false" role="tab"></button>
-                            <div class="connector connector-top" aria-hidden="true"></div>
-                        </div>
-                        <span class="experience-label">Experience #4</span>
-                    </div>
-                </div>
-            </div>
+                    </article>
+                </li>
+            </ul>
         </div>
-    </div>
-</section>
-<section id="projects" aria-labelledby="projects-heading">
-    <div id="projects-content">
-        <h2 id="projects-heading">My projects</h2>
-        <div class="slideshow-container" role="region" aria-label="Projects slideshow">
+    </section>
 
-            <div class="my-slides fade">
-                <img src="assets/images/test4.webp" class="slide-image"
-                     alt="Project #1">
-                <div class="text">Project #1</div>
-            </div>
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
 
-            <div class="my-slides fade">
-                <img src="assets/images/test2.jpeg" class="slide-image"
-                     alt="Project #2">
-                <div class="text">Project #2</div>
-            </div>
-
-            <div class="my-slides fade">
-                <img src="assets/images/test3.jpg" class="slide-image"
-                     alt="Project #3">
-                <div class="text">Project #3</div>
-            </div>
-
-            <a class="prev" aria-label="Previous slide">&#10094;</a>
-            <a class="next" aria-label="Next slide">&#10095;</a>
+            <!-- Most recent first. -->
+            <ol class="timeline" role="list">
+                <li class="timeline-item">
+                    <p class="timeline-date"><time datetime="2024">2024</time> – present</p>
+                    <h3 class="timeline-role">Job title <span class="timeline-org">· Company</span></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </li>
+                <li class="timeline-item">
+                    <p class="timeline-date"><time datetime="2022">2022</time> – <time datetime="2024">2024</time></p>
+                    <h3 class="timeline-role">Job title <span class="timeline-org">· Company</span></h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </li>
+                <li class="timeline-item">
+                    <p class="timeline-date"><time datetime="2020">2020</time> – <time datetime="2022">2022</time></p>
+                    <h3 class="timeline-role">Job title <span class="timeline-org">· Company</span></h3>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </li>
+            </ol>
         </div>
+    </section>
 
-        <div class="dots-container">
-            <span class="dot" role="button" tabindex="0" aria-label="Go to slide 1"></span>
-            <span class="dot" role="button" tabindex="0" aria-label="Go to slide 2"></span>
-            <span class="dot" role="button" tabindex="0" aria-label="Go to slide 3"></span>
-        </div>
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-lead">Have a project in mind, or just want to say hi? Reach me here.</p>
 
-    </div>
-</section>
-<section id="contact" aria-labelledby="contact-heading">
-    <div id="contact-content">
-        <h2 id="contact-heading">Contact me</h2>
-        <div id="data-container">
-            <div class="contact-row">
-                <p>szentgyroland23@gmail.com</p>
-                <button class="copy-btn" data-copy="szentgyroland23@gmail.com" aria-label="Copy email address">
-                    <i class="fas fa-copy" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div class="contact-row">
-                <p>+36304750725</p>
-                <button class="copy-btn" data-copy="+36304750725" aria-label="Copy phone number">
-                    <i class="fas fa-copy" aria-hidden="true"></i>
-                </button>
-            </div>
-            <p>Szeged, Hungary</p>
+            <ul class="contact-list" role="list">
+                <li class="contact-row">
+                    <a href="mailto:szentgyroland23@gmail.com">szentgyroland23@gmail.com</a>
+                    <button class="copy-button" type="button" data-copy="szentgyroland23@gmail.com" data-copy-label="email address">
+                        <svg class="icon icon-copy" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        <svg class="icon icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                        <span class="visually-hidden">Copy email address</span>
+                    </button>
+                </li>
+                <li class="contact-row">
+                    <a href="tel:+36304750725">+36 30 475 0725</a>
+                    <button class="copy-button" type="button" data-copy="+36304750725" data-copy-label="phone number">
+                        <svg class="icon icon-copy" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        <svg class="icon icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                        <span class="visually-hidden">Copy phone number</span>
+                    </button>
+                </li>
+                <li>Szeged, Hungary</li>
+            </ul>
+            <p class="copy-status" id="copy-status" role="status"></p>
+
+            <ul class="social" role="list">
+                <li>
+                    <a href="https://github.com/szentgyroland">
+                        <svg class="icon icon-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                        <span class="visually-hidden">GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/roland-szentgy%C3%B6rgyhegyi-295132289/">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        <span class="visually-hidden">LinkedIn</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div id="icon-container">
-            <a href="https://github.com/szentgyroland" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
-                <i class="fab fa-github icon-link" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/roland-szentgy%C3%B6rgyhegyi-295132289/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
-                <i class="fab fa-linkedin icon-link" aria-hidden="true"></i>
-            </a>
-            <a href="mailto:szentgyroland23@gmail.com" aria-label="Send me an email">
-                <i class="fas fa-envelope icon-link" aria-hidden="true"></i>
-            </a>
-            <a href="tel:+36304750725" aria-label="Call me at +36 30 475 0725">
-                <i class="fas fa-phone icon-link" aria-hidden="true"></i>
-            </a>
-        </div>
-    </div>
-    <div id="footer">
-        <div id="footer-content">
-            <p>©2026</p>
-            <p id="footer-right">Personal website</p>
-        </div>
-    </div>
-</section>
+    </section>
 </main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>© <span data-year>2026</span> Roland Szentgyörgyhegyi</p>
+        <a href="#home">Back to top</a>
+    </div>
+</footer>
 </body>
 </html>

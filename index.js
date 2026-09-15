@@ -1,249 +1,137 @@
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
 /**
- * Initializes the Typed.js text animation for the introduction section.
+ * Types and deletes each phrase from `data-phrases` in turn.
+ * The element is aria-hidden; screen readers read the static copy next to it.
  */
-function initTyped() {
-    new Typed(".autoType", {
-        strings: ["I'm a Frontend developer.", "I build things for the web."],
-        typeSpeed: 60,
-        backSpeed: 60,
-        loop: true,
-    });
+function initTypewriter() {
+    const element = document.querySelector("[data-phrases]");
+    if (!element || reducedMotion.matches) return;
+
+    const TYPE_DELAY_MS = 70;
+    const DELETE_DELAY_MS = 35;
+    const HOLD_DELAY_MS = 1800;
+
+    const phrases = element.dataset.phrases.split("|");
+    let phraseIndex = 0;
+    let length = phrases[0].length;
+    let deleting = true;
+
+    function tick() {
+        const phrase = phrases[phraseIndex];
+        length += deleting ? -1 : 1;
+        element.textContent = phrase.slice(0, length);
+
+        let delay = deleting ? DELETE_DELAY_MS : TYPE_DELAY_MS;
+        if (!deleting && length === phrase.length) {
+            deleting = true;
+            delay = HOLD_DELAY_MS;
+        } else if (deleting && length === 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            delay = TYPE_DELAY_MS * 4;
+        }
+        setTimeout(tick, delay);
+    }
+
+    setTimeout(tick, HOLD_DELAY_MS);
 }
 
 /**
- * Updates the active navigation link highlight to match the given section ID.
- * @param {NodeList} navLinks - All navigation anchor elements.
- * @param {string} sectionId - The ID of the currently active section.
+ * Collapses the navigation behind a menu button on small screens.
  */
-function updateActiveNavLink(navLinks, sectionId) {
-    navLinks.forEach((link) => {
-        link.classList.remove("activeMenu");
-        link.removeAttribute("aria-current");
-    });
-    const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
-    if (activeLink) {
-        activeLink.classList.add("activeMenu");
-        activeLink.setAttribute("aria-current", "page");
-    }
-}
+function initMobileNav() {
+    const header = document.querySelector(".site-header");
+    const toggle = header?.querySelector(".menu-toggle");
+    const nav = document.getElementById("site-nav");
+    if (!toggle || !nav) return;
 
-/**
- * Enables smooth section-by-section scrolling via the mouse wheel.
- */
-function initScrollNavigation() {
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
+    const isOpen = () => toggle.getAttribute("aria-expanded") === "true";
+    const setOpen = (open) => {
+        header.dataset.nav = open ? "open" : "closed";
+        toggle.setAttribute("aria-expanded", String(open));
+    };
 
-    document.addEventListener("wheel", (event) => {
-        if (event.ctrlKey || event.metaKey) return;
+    setOpen(false);
+    toggle.hidden = false;
 
-        event.preventDefault();
-        const currentIndex = Math.round(window.scrollY / window.innerHeight);
-        const direction = event.deltaY > 0 ? 1 : -1;
-        const nextIndex = Math.max(0, Math.min(sections.length - 1, currentIndex + direction));
+    toggle.addEventListener("click", () => setOpen(!isOpen()));
 
-        window.scrollTo({ top: nextIndex * window.innerHeight, behavior: "smooth" });
-        updateActiveNavLink(navLinks, sections[nextIndex].id);
-    }, { passive: false });
-}
-
-/**
- * Attaches smooth-scroll and active-link behavior to nav anchor clicks.
- */
-function initNavLinks() {
-    const navLinks = document.querySelectorAll("nav a");
-    navLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault();
-            const targetSection = document.querySelector(link.getAttribute("href"));
-            if (targetSection) {
-                window.scrollTo({ top: targetSection.offsetTop, behavior: "smooth" });
-                updateActiveNavLink(navLinks, targetSection.id);
-            }
-        });
-    });
-}
-
-/**
- * Triggers a PDF download for the CV file.
- */
-function downloadFile() {
-    const link = document.createElement("a");
-    link.href = "assets/szentgyorgyhegyi_roland_cv.pdf";
-    link.download = "szentgyorgyhegyi_roland_cv.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-/**
- * Attaches the CV download handler to the download button.
- */
-function initCvDownload() {
-    document.getElementById("cv-button").addEventListener("click", downloadFile);
-}
-
-/**
- * Shows the selected experience panel and updates the timeline button state.
- * @param {number} contentNumber - 1-based index of the experience entry to show.
- */
-function showContent(contentNumber) {
-    document.querySelectorAll(".circle-button").forEach((button) => {
-        button.classList.remove("active");
-        button.setAttribute("aria-pressed", "false");
-    });
-    document.querySelectorAll(".text-content").forEach((content) => {
-        content.classList.remove("active");
-        content.setAttribute("aria-hidden", "true");
-    });
-
-    const selectedButton = document.getElementById(`btn-${contentNumber}`);
-    if (selectedButton) {
-        selectedButton.classList.add("active");
-        selectedButton.setAttribute("aria-pressed", "true");
-    }
-
-    const selectedContent = document.getElementById(`content-${contentNumber}`);
-    if (selectedContent) {
-        selectedContent.classList.add("active");
-        selectedContent.setAttribute("aria-hidden", "false");
-    }
-}
-
-/**
- * Attaches click handlers to the experience timeline buttons.
- */
-function initExperienceTimeline() {
-    document.querySelectorAll(".circle-button").forEach((button) => {
-        button.addEventListener("click", () => {
-            const index = parseInt(button.id.replace("btn-", ""), 10);
-            showContent(index);
-        });
-    });
-}
-
-/**
- * Initializes the projects slideshow with auto-advance, navigation controls,
- * dot indicators, and keyboard support.
- */
-function initSlideshow() {
-    const SLIDE_INTERVAL_MS = 5000;
-    let slideIndex = 1;
-    let slideInterval;
-
-    function showSlides(n) {
-        const slides = document.querySelectorAll(".my-slides");
-        const dots = document.querySelectorAll(".dot");
-
-        if (n > slides.length) slideIndex = 1;
-        if (n < 1) slideIndex = slides.length;
-
-        slides.forEach((slide) => {
-            slide.style.display = "none";
-            slide.setAttribute("aria-hidden", "true");
-            slide.classList.remove("fade");
-        });
-        dots.forEach((dot) => {
-            dot.classList.remove("active");
-            dot.removeAttribute("aria-current");
-        });
-
-        slides[slideIndex - 1].style.display = "block";
-        slides[slideIndex - 1].setAttribute("aria-hidden", "false");
-        slides[slideIndex - 1].classList.add("fade");
-        dots[slideIndex - 1].classList.add("active");
-        dots[slideIndex - 1].setAttribute("aria-current", "true");
-    }
-
-    function startTimer() {
-        slideInterval = setInterval(() => { plusSlides(1); }, SLIDE_INTERVAL_MS);
-    }
-
-    function resetTimer() {
-        clearInterval(slideInterval);
-        startTimer();
-    }
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-        resetTimer();
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-        resetTimer();
-    }
-
-    document.querySelector(".prev").addEventListener("click", () => plusSlides(-1));
-    document.querySelector(".next").addEventListener("click", () => plusSlides(1));
-
-    document.querySelectorAll(".dot").forEach((dot, index) => {
-        dot.addEventListener("click", () => currentSlide(index + 1));
+    nav.addEventListener("click", (event) => {
+        if (event.target.closest("a")) setOpen(false);
     });
 
     document.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-            const active = document.activeElement;
-            if (active && active.classList.contains("dot")) {
-                event.preventDefault();
-                const dots = Array.from(document.querySelectorAll(".dot"));
-                const index = dots.indexOf(active);
-                if (index !== -1) currentSlide(index + 1);
-            }
+        if (event.key === "Escape" && isOpen()) {
+            setOpen(false);
+            toggle.focus();
         }
     });
-
-    showSlides(slideIndex);
-    startTimer();
 }
 
 /**
- * Toggles the mobile navigation menu open/closed via the hamburger button.
+ * Marks the nav link for the section crossing the middle of the viewport
+ * with aria-current, which the CSS also uses for the highlight.
  */
-function initHamburger() {
-    const hamburger = document.getElementById("hamburger-btn");
-    const menu = document.getElementById("menu");
-    if (!hamburger || !menu) return;
+function initScrollspy() {
+    const links = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+    if (links.length === 0) return;
 
-    hamburger.addEventListener("click", () => {
-        const isOpen = menu.classList.toggle("open");
-        hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
-
-    menu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-            menu.classList.remove("open");
-            hamburger.setAttribute("aria-expanded", "false");
+    const setCurrent = (current) => {
+        links.forEach((link) => {
+            if (link === current) link.setAttribute("aria-current", "true");
+            else link.removeAttribute("aria-current");
         });
-    });
+    };
+
+    const linkBySectionId = new Map(links.map((link) => [link.hash.slice(1), link]));
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) setCurrent(linkBySectionId.get(entry.target.id));
+        });
+    }, { rootMargin: "-50% 0px -50% 0px" });
+
+    // Observe every section, including ones without a nav link (like the hero),
+    // so scrolling back to them clears the highlight.
+    document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
 }
 
 /**
- * Attaches click handlers to copy buttons, copying their data-copy value to the clipboard.
- * Briefly shows a checkmark icon as visual feedback.
+ * Copies `data-copy` to the clipboard and reports the result in the status line.
  */
 function initCopyButtons() {
-    document.querySelectorAll(".copy-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const text = btn.getAttribute("data-copy");
-            navigator.clipboard.writeText(text).then(() => {
-                const icon = btn.querySelector("i");
-                icon.classList.replace("fa-copy", "fa-check");
-                setTimeout(() => icon.classList.replace("fa-check", "fa-copy"), 1500);
-            }).catch(() => {
-                btn.setAttribute("aria-label", btn.getAttribute("aria-label") + " (copy failed)");
-            });
+    const status = document.getElementById("copy-status");
+
+    document.querySelectorAll("[data-copy]").forEach((button) => {
+        const label = button.dataset.copyLabel;
+        let resetTimer;
+
+        button.addEventListener("click", async () => {
+            try {
+                await navigator.clipboard.writeText(button.dataset.copy);
+                button.dataset.copied = "";
+                status.textContent = `Copied ${label}.`;
+            } catch {
+                status.textContent = `Couldn't copy the ${label}. Select it and copy it manually.`;
+            }
+
+            clearTimeout(resetTimer);
+            resetTimer = setTimeout(() => {
+                delete button.dataset.copied;
+                status.textContent = "";
+            }, 2500);
         });
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    initTyped();
-    initScrollNavigation();
-    initNavLinks();
-    initCvDownload();
-    initExperienceTimeline();
-    initSlideshow();
-    initCopyButtons();
-    initHamburger();
-});
+function initFooterYear() {
+    document.querySelectorAll("[data-year]").forEach((element) => {
+        element.textContent = new Date().getFullYear();
+    });
+}
+
+initTypewriter();
+initMobileNav();
+initScrollspy();
+initCopyButtons();
+initFooterYear();

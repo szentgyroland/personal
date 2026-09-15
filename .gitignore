@@ -1,0 +1,9 @@
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local tooling
+node_modules/
+.claude/launch.json

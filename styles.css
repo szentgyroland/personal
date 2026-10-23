@@ -657,14 +657,24 @@ a {
     gap: 0.25rem;
     margin: 0;
     padding: 0;
-    font-size: 1.125rem;
+    /* Shrinks on narrow phones so the long email address and its copy
+       button still fit on one line. */
+    font-size: clamp(0.875rem, 0.375rem + 2.5vw, 1.125rem);
     list-style: none;
 }
 
 .contact-row {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    max-width: 100%;
     gap: 0.25rem;
+}
+
+/* Last resort: an address with nowhere to break must not widen the page. */
+.contact-list a {
+    overflow-wrap: anywhere;
 }
 
 .contact-list a {

@@ -96,34 +96,6 @@ function initScrollspy() {
     document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
 }
 
-/**
- * Copies `data-copy` to the clipboard and reports the result in the status line.
- */
-function initCopyButtons() {
-    const status = document.getElementById("copy-status");
-
-    document.querySelectorAll("[data-copy]").forEach((button) => {
-        const label = button.dataset.copyLabel;
-        let resetTimer;
-
-        button.addEventListener("click", async () => {
-            try {
-                await navigator.clipboard.writeText(button.dataset.copy);
-                button.dataset.copied = "";
-                status.textContent = `Copied ${label}.`;
-            } catch {
-                status.textContent = `Couldn't copy the ${label}. Select it and copy it manually.`;
-            }
-
-            clearTimeout(resetTimer);
-            resetTimer = setTimeout(() => {
-                delete button.dataset.copied;
-                status.textContent = "";
-            }, 2500);
-        });
-    });
-}
-
 function initFooterYear() {
     document.querySelectorAll("[data-year]").forEach((element) => {
         element.textContent = new Date().getFullYear();
@@ -133,5 +105,4 @@ function initFooterYear() {
 initTypewriter();
 initMobileNav();
 initScrollspy();
-initCopyButtons();
 initFooterYear();

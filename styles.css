@@ -657,63 +657,22 @@ a {
     gap: 0.25rem;
     margin: 0;
     padding: 0;
-    /* Shrinks on narrow phones so the long email address and its copy
-       button still fit on one line. */
-    font-size: clamp(0.875rem, 0.375rem + 2.5vw, 1.125rem);
+    /* The email address is long enough to overflow a narrow phone, so the
+       type scales down below ~375px and holds at 18px above it. */
+    font-size: clamp(1rem, 0.2725rem + 3.64vw, 1.125rem);
     list-style: none;
-}
-
-.contact-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-    gap: 0.25rem;
-}
-
-/* Last resort: an address with nowhere to break must not widen the page. */
-.contact-list a {
-    overflow-wrap: anywhere;
 }
 
 .contact-list a {
     text-decoration: none;
+    /* Last resort: an address with nowhere to break must not widen the page. */
+    overflow-wrap: anywhere;
 }
 
 .contact-list a:hover {
     color: var(--color-accent);
     text-decoration: underline;
     text-underline-offset: 0.2em;
-}
-
-.copy-button {
-    display: inline-grid;
-    place-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border: 0;
-    border-radius: 0.5rem;
-    background: none;
-    color: var(--color-accent);
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.copy-button:hover {
-    background: var(--color-accent-wash);
-}
-
-.copy-button:not([data-copied]) .icon-check,
-.copy-button[data-copied] .icon-copy {
-    display: none;
-}
-
-.copy-status {
-    min-height: 1.6em;
-    margin-top: 0.5rem;
-    color: var(--color-muted);
-    font-size: 0.875rem;
 }
 
 .social {
